@@ -5,8 +5,8 @@ from access_token import AccessTokenURI, Readwritejson
 logging.basicConfig(level=logging.DEBUG)
 
 access_token = Readwritejson.generateNewAccessToken()
-
-kws = KiteTicker("ddnmpzgtrz21k20t", access_token)
+api_key='api_key'
+kws = KiteTicker("api_key", access_token)
 
 def on_ticks(ws, ticks):  # noqa
     # Callback to receive ticks.
