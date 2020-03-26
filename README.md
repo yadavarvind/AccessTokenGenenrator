@@ -3,13 +3,14 @@ Zerodha ( Kite ) access token generator
 
 Provide details in AccessTokenURI your following details
 
-api_key='api_key'
-zerodha_id = 'zerodha_id'
-zerodha_password = 'zerodha_password'
-zerodha_pin = 'zerodha_pin'
+api_key='api_key'                                            
+zerodha_id = 'zerodha_id'                                      
+zerodha_password = 'zerodha_password'                                                          
+zerodha_pin = 'zerodha_pin'                                        
 api_secret = 'api_secret'
 
 Please check example for accessing Zerodha access_token
+
 
 import logging
 from kiteconnect import KiteTicker
@@ -19,7 +20,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 access_token = Readwritejson.generateNewAccessToken()
 
-kws = KiteTicker("ddnmpzgtrz21k20t", access_token)
+kws = KiteTicker("api_key", access_token)
 
 def on_ticks(ws, ticks):  # noqa
     # Callback to receive ticks.
@@ -36,8 +37,5 @@ def on_connect(ws, response):  # noqa
 # Assign the callbacks.
 kws.on_ticks = on_ticks
 kws.on_connect = on_connect
-# margins
-# Infinite loop on the main thread. Nothing after this will run.
-# You have to use the pre-defined callbacks to manage subscriptions.
 kws.connect()
 
