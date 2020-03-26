@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 access_token = Readwritejson.generateNewAccessToken()
 api_key='api_key'
-kws = KiteTicker("api_key", access_token)
+kws = KiteTicker(api_key, access_token)
 
 def on_ticks(ws, ticks):  # noqa
     # Callback to receive ticks.
