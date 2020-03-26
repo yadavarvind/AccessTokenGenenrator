@@ -1,16 +1,3 @@
-# AccessTokenGenenrator
-Zerodha ( Kite ) access token generator
-
-Provide details in AccessTokenURI your following details
-
-api_key='api_key'
-zerodha_id = 'zerodha_id'
-zerodha_password = 'zerodha_password'
-zerodha_pin = 'zerodha_pin'
-api_secret = 'api_secret'
-
-Please check example for accessing Zerodha access_token
-
 import logging
 from kiteconnect import KiteTicker
 from access_token import AccessTokenURI, Readwritejson
@@ -40,4 +27,3 @@ kws.on_connect = on_connect
 # Infinite loop on the main thread. Nothing after this will run.
 # You have to use the pre-defined callbacks to manage subscriptions.
 kws.connect()
-
