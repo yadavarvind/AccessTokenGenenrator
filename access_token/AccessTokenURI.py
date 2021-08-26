@@ -35,14 +35,9 @@ def getAccessToken():
                          data={'user_id': zerodha_id, 'request_id': request_id, 'twofa_value': zerodha_pin}, headers=headers)
 
 
-    public_token = data.json()['data']['public_token']
-    user_id='user_id='+zerodha_id
+    token = ';'.join([f'{k}={v}' for k, v in data.cookies.items()])
 
-    headers.update({'Cookie': cookies+';'+'public_token='+public_token+';'+user_id})
-    data = requests.get(login.url+'&skip_session=true', headers=headers)
-    print(data.url)
-    request_token = data.url.split("?")[1].split("&")[0].split("=")[1]
-    data = kite.generate_session(request_token, api_secret)
-    return data["access_token"]
+    enctoken = token.split(';')[1][9:]
+    return enctoken
 
 
